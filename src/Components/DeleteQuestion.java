@@ -182,7 +182,8 @@ public class DeleteQuestion extends javax.swing.JFrame {
         // TODO add your handling code here:
         String id=jTextField1.getText();
         try{
-            Connection con = ConnectionProvider.getCon();
+            Connection con = null;
+            con = ConnectionProvider.getCon();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from question where id='"+id+"'");
             

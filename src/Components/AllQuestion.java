@@ -20,6 +20,7 @@ public class AllQuestion extends javax.swing.JFrame {
         initComponents();
         
         try{
+            
             Connection con = ConnectionProvider.getCon();
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select * from question");

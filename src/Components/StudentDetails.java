@@ -23,7 +23,7 @@ public class StudentDetails extends javax.swing.JFrame {
     public StudentDetails() {
         initComponents();
         jTextArea1.setEditable(false);
-        SimpleDateFormat dFormat = new SimpleDateFormat("dd-mm-yyyy");
+        SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         jLabel4.setText(dFormat.format(date));
     }
@@ -159,6 +159,11 @@ public class StudentDetails extends javax.swing.JFrame {
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 300, -1));
 
         jTextField2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -330,7 +335,7 @@ public class StudentDetails extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 120, 790, 302));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/pages background student.jpg"))); // NOI18N
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 640, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -361,7 +366,8 @@ public class StudentDetails extends javax.swing.JFrame {
         String marks="0";
         
         try{
-            Connection con = ConnectionProvider.getCon();
+            Connection con = null;
+            con = ConnectionProvider.getCon();
             PreparedStatement ps = con.prepareStatement("insert into student values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1,rollNo);
             ps.setString(2,name);
@@ -555,6 +561,10 @@ public class StudentDetails extends javax.swing.JFrame {
             jTextField15.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_jTextField15FocusLost
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     /**

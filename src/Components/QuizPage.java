@@ -62,7 +62,8 @@ public class QuizPage extends javax.swing.JFrame {
     
     public void question(){
         try{
-            Connection con = ConnectionProvider.getCon();
+            Connection con = null;
+            con = ConnectionProvider.getCon();
             Statement st = con.createStatement();
             
             ResultSet rs1 = st.executeQuery("select * from question where id='"+questionId+"'" );
@@ -367,7 +368,7 @@ public class QuizPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 98, -1, 670));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, 670));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel20.setText("Question Demo");
